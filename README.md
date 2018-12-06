@@ -6,7 +6,7 @@ ele foi feito para cadeira de Linguagens Formais e Autômatos da faculdade Unina
 ## Resumo
 
 Um compilador nada mais é do que um tradutor de uma linguagem mais abstrata para uma mais concreta.
-![alt text](https://imgur.com/a/hlZdNNC)
+![alt text](https://github.com/Reury/compilador/blob/master/compilado.jpg)
 
 ### Prerequisitos
 

@@ -21,11 +21,17 @@ o apt get devera cuidar de todas dependencias
 ### instalação
 
 #Linux:
+
 $sudo apt-get update
+
 $sudo apt-get install flex bison
+
 Window:
+
 instalar o substema de linux para windows
+
 instalar uma distro preferida nosso exemplo ubuntu.
+
 abrir o WSL  e executar os comandos linux
 
 ## testando

@@ -5,8 +5,8 @@ ele foi feito para cadeira de Linguagens Formais e Autômatos da faculdade Unina
 
 ## Resumo
 
-Um compilador nada mais é do que um tradutor de uma linguagem mais abstrata para uma mais concreta
-o objetivo, utilizando JAVA e YACC ou bison(windows) criaremos nossa linguagem alvo.
+Um compilador nada mais é do que um tradutor de uma linguagem mais abstrata para uma mais concreta.
+![alt text](https://imgur.com/a/hlZdNNC)
 
 ### Prerequisitos
 

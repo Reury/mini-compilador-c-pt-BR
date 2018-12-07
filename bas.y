@@ -4,7 +4,16 @@
 int yylex();
 void yyerror(char *s);
 %}
-%token INTEIRO OCTAL EOL
+%union{
+	INTEIRO ival;
+	DOUBLE dval;
+}
+
+%token <ival> INTEIRO 
+%token <dval> DOUBLE
+%token EOL
+%type <ival> EXPRESSAO
+
 %left  '+'  '-'
 %left  '*'  '/'
 
@@ -12,7 +21,7 @@ void yyerror(char *s);
 PROGRAMA:
 		PROGRAMA EXPRESSAO EOL;
 		|
-EXPRESSAO:
+EXPRESSAO: 
 		EXPRESSAO '+' EXPRESSAO{
 			$$ = $1 + $3;
 			printf("Expressao: %d + %d = %d \n", $1,$3, $1+$3);
@@ -28,9 +37,9 @@ EXPRESSAO:
 		|  EXPRESSAO  '/'  EXPRESSAO{
 			$$ = $1 / $3;
 			printf("Expressao: %d / %d = %d \n", $1,$3, $1/$3);
-		}		
+		}
 		|INTEIRO { $$ = $1; }
-		|OCTAL { $$ = $1; }
+
         ;
 %%
 void yyerror(char *s){

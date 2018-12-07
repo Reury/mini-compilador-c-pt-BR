@@ -46,18 +46,29 @@ extern int yydebug;
   enum yytokentype
   {
     INTEIRO = 258,
-    OCTAL = 259,
+    DOUBLE = 259,
     EOL = 260
   };
 #endif
 /* Tokens.  */
 #define INTEIRO 258
-#define OCTAL 259
+#define DOUBLE 259
 #define EOL 260
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-typedef int YYSTYPE;
+
+union YYSTYPE
+{
+#line 7 "bas.y" /* yacc.c:1909  */
+
+	INTEIRO ival;
+	DOUBLE dval;
+
+#line 69 "y.tab.h" /* yacc.c:1909  */
+};
+
+typedef union YYSTYPE YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define YYSTYPE_IS_DECLARED 1
 #endif

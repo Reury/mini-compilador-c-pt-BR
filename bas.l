@@ -1,23 +1,18 @@
 %{
  #include "y.tab.h"
  #include <stdio.h>
+ #include <stdlib.h>
  void yyeror(char* c);
 %}
 
 %%
 [0-9]+              {
-			           yylval = atoi(yytext);
-			           return INTEIRO;
-		            }
-[0-9]+.[0-9]*		{
-				    yylval = atoi(yytext);
-			        return DOUBLE;						
-					}
-[0-7]+				{
-				    yylval = atoi(yytext);
-			        return OCTAL;		                
-					}					 			                          
+			        	yylval = atoi(yytext);
+			    		return INTEIRO;
+		            }			 			                          
 [-+*/%=^:,]         { return *yytext; }
+"IF"     			{ return IF; }
+"ELSE"   			{ return ELSE; }
 \n					{ return EOL; }
 [ \t]				;
 .                   ;

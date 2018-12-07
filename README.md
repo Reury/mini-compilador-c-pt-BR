@@ -43,10 +43,10 @@ abrir o WSL  e executar os comandos linux
 
 ## Autores
 
-##Reury Bernardo de araujo 
-##Lucas de Almeida Silva
-##Manuel albuquerque
-##William ramalho
+#Reury Bernardo de araujo 
+#Lucas de Almeida Silva
+#Manuel albuquerque
+#William ramalho
 
 
 ## License

@@ -4,43 +4,41 @@
 int yylex();
 void yyerror(char *s);
 %}
-%union{
-	INTEIRO ival;
-	DOUBLE dval;
-}
-
-%token <ival> INTEIRO 
-%token <dval> DOUBLE
+%token INTEIRO
+%token OCTAL
+%token BINARIO
+%token HEXA
 %token EOL
-%type <ival> EXPRESSAO
+%token IF
+%token WHILE
+%token FOR
 
 %left  '+'  '-'
 %left  '*'  '/'
 
 %%
 PROGRAMA:
-		PROGRAMA EXPRESSAO EOL;
+		PROGRAMA expressao EOL
+		PROGRAMA EOL
 		|
-EXPRESSAO: 
-		EXPRESSAO '+' EXPRESSAO{
-			$$ = $1 + $3;
-			printf("Expressao: %d + %d = %d \n", $1,$3, $1+$3);
-		}
-        |   EXPRESSAO  '-'  EXPRESSAO{
-			$$ = $1 - $3;
-			printf("Expressao: %d - %d = %d \n", $1,$3, $1-$3);
-		}
-        |   EXPRESSAO  '*'  EXPRESSAO{
-			$$ = $1 * $3;
-			printf("Expressao: %d * %d = %d \n", $1,$3, $1*$3);
-		}
-		|  EXPRESSAO  '/'  EXPRESSAO{
-			$$ = $1 / $3;
-			printf("Expressao: %d / %d = %d \n", $1,$3, $1/$3);
-		}
-		|INTEIRO { $$ = $1; }
+		;
+expressao:
+		argumento					
+		| IF '(' argumento ')'					{ $$ = $3;}
+		| WHILE '(' argumento ')' argumento		{ $$ = $3;}	
+		| FOR '('argumento ')' argumento		{ $$ = $3;}			
+		;
+argumento:
+		INTEIRO						{printf("e valido\n");}
+		| OCTAL						{printf("e valido\n");}
+		| BINARIO					{printf("e valido\n");}
+		| HEXA						{printf("e valido\n");}
+		| IF argumento 				{printf("IF simples\n");}		
+		| WHILE argumento argumento {printf("while correto");}
+		| FOR argumento argumento 	{printf("for correto");}							
+		;
 
-        ;
+
 %%
 void yyerror(char *s){
 	fprintf(stderr, "%s\n", s);

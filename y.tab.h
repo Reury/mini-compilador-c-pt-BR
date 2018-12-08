@@ -46,29 +46,28 @@ extern int yydebug;
   enum yytokentype
   {
     INTEIRO = 258,
-    DOUBLE = 259,
-    EOL = 260
+    OCTAL = 259,
+    BINARIO = 260,
+    HEXA = 261,
+    EOL = 262,
+    IF = 263,
+    WHILE = 264,
+    FOR = 265
   };
 #endif
 /* Tokens.  */
 #define INTEIRO 258
-#define DOUBLE 259
-#define EOL 260
+#define OCTAL 259
+#define BINARIO 260
+#define HEXA 261
+#define EOL 262
+#define IF 263
+#define WHILE 264
+#define FOR 265
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-
-union YYSTYPE
-{
-#line 7 "bas.y" /* yacc.c:1909  */
-
-	INTEIRO ival;
-	DOUBLE dval;
-
-#line 69 "y.tab.h" /* yacc.c:1909  */
-};
-
-typedef union YYSTYPE YYSTYPE;
+typedef int YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define YYSTYPE_IS_DECLARED 1
 #endif
